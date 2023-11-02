@@ -99,28 +99,31 @@ class _MyHomePageState extends State<MyHomePage> {
           Center(
             child: Text(list[counter]),
           ),
-          Center(
-              child: MenuAnchor(
-                  builder: (BuildContext context, MenuController controller,
-                      Widget? child) {
-                    return IconButton(
-                      onPressed: () {
-                        if (controller.isOpen) {
-                          controller.close();
-                        } else {
-                          controller.open();
-                        }
-                      },
-                      icon: const Icon(Icons.more_horiz),
-                      tooltip: 'Show menu',
-                    );
-                  },
-                  menuChildren: [
-                Text("data"),
-                Text(
-                  "data",
-                )
-              ])),
+          // Center(
+          //     child:
+          //     MenuAnchor(
+          //         builder: (BuildContext context, MenuController controller,
+          //         //     Widget? child) {
+          //         //   // return IconButton(
+          //         //   //   onPressed: () {
+          //         //   //     if (controller.isOpen) {
+          //         //   //       controller.close();
+          //         //   //     } else {
+          //         //   //       controller.open();
+          //         //   //     }
+          //         //   //   },
+          //         //   //   icon: const Icon(Icons.more_horiz),
+          //         //   //   tooltip: 'Show menu',
+          //         //   // );
+          //         // },
+          //         menuChildren: [
+          //       Text("data"),
+          //       Text(
+          //         "data",
+          //       )
+          //     ]
+          //     ),
+          // ),
           // Center(
           //   child: Text(String.fromCharCode(counter)),
           // ),
@@ -134,6 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.menu),
         onPressed: () {
           showModalBottomSheet(
             context: context,
@@ -149,9 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             context: context,
                             builder: (BuildContext context) {
                               return StatefulBuilder(builder:
-                                  (BuildContext context,
-                                      StateSetter
-                                          setState /*You can rename this!*/) {
+                                  (BuildContext context, StateSetter setState) {
                                 return SizedBox(
                                   height: desiredHeight,
                                   child: Center(
@@ -188,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     setState(() {});
                                                   },
                                                   child: Icon(Icons
-                                                      .arrow_forward), // Add the trailing icon here
+                                                      .delete), // Add the trailing icon here
                                                 ),
                                               );
                                             },
@@ -210,11 +212,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
-                                title: Text('TextField in Dialog'),
+                                title: Text('Add a restaurant'),
                                 content: TextField(
                                   controller: _textFieldController,
-                                  decoration: InputDecoration(
-                                      hintText: "Text Field in Dialog"),
+                                  decoration:
+                                      InputDecoration(hintText: "Ex: Lotteria"),
                                 ),
                                 actions: [
                                   TextButton(
